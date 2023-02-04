@@ -22,11 +22,15 @@ namespace FisSst.BlazorMaps
             ShadowPane = DefaultShadowPane;
             BubblingMouseEvents = false;
             Interactive = true;
+            RotationAngle = 45.0;
+            RotationOrigin = DefaultRotationOrigin;
         }
 
         private const int DefaultZIndexOffset = 0;
         private const double DefaultOpacity = 1;
+        private const double DefaultRotationAngle = 0;
         private const int DefaultRiseOffset = 250;
+        private const string DefaultRotationOrigin = "bottom center";
         private const string DefaultPane = "markerPane";
         private const string DefaultShadowPane = "shadowPane";
         private Icon iconRef;
@@ -63,5 +67,7 @@ namespace FisSst.BlazorMaps
         public bool AutoPan { get; init; }
         public Point AutoPanPadding { get; init; }
         public int AutoPanSpeed { get; init; }
+        public double RotationAngle { get; init; }
+        public string RotationOrigin { get; init; }
     }
 }

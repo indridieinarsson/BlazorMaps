@@ -18,7 +18,8 @@ namespace FisSst.BlazorMaps
 
         public async Task<Circle> SetRadius(double radius)
         {
-            await this.JsReference.InvokeAsync<Circle>(SetRadiusJsFunction, radius);
+            // await this.JsReference.InvokeAsync<Circle>(SetRadiusJsFunction, radius);
+            await this.JsReference.InvokeVoidAsync(SetRadiusJsFunction, radius);
             return this;
         }
     }

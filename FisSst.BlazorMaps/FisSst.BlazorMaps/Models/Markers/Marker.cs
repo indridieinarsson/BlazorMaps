@@ -11,6 +11,8 @@ namespace FisSst.BlazorMaps
     {
         private const string GetLatLngJsFunction = "getLatLng";
         private const string SetLatLngJsFunction = "setLatLng";
+        private const string SetRotationAngleJsFunction = "setRotationAngle";
+        private const string SetRotationOriginJsFunction = "setRotationOrigin";
         private const string SetZIndexOffsetJsFunction = "setZIndexOffset";
         private const string GetIconJsFunction = "getIcon";
         private const string SetIconJsFunction = "setIcon";
@@ -25,6 +27,16 @@ namespace FisSst.BlazorMaps
         public async Task<LatLng> GetLatLng()
         {
             return await this.JsReference.InvokeAsync<LatLng>(GetLatLngJsFunction);
+        }
+
+        public async Task<IJSObjectReference> SetRotationAngle(double newAngle)
+        {
+            return await this.JsReference.InvokeAsync<IJSObjectReference>(SetRotationAngleJsFunction, newAngle);
+        }
+
+        public async Task<IJSObjectReference> SetRotationOrigin(string newOrigin)
+        {
+            return await this.JsReference.InvokeAsync<IJSObjectReference>(SetRotationOriginJsFunction, newOrigin);
         }
 
         public async Task<IJSObjectReference> SetLatLng(LatLng latLng)

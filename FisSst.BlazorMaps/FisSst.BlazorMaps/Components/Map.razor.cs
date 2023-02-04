@@ -24,7 +24,8 @@ namespace FisSst.BlazorMaps
         public MapOptions MapOptions { get; set; }
 
         [Parameter]
-        public EventCallback AfterRender { get; set; }
+        public Action AfterRender { get; set; }
+        // public EventCallback AfterRender { get; set; }
 
         internal IJSObjectReference MapReference { get; set; }
 
@@ -44,8 +45,12 @@ namespace FisSst.BlazorMaps
             {
                 this.MapReference = await this.MapJsInterop.Initialize(this.MapOptions);
                 this.MapEvented = new MapEvented(this.MapReference, this.EventedJsInterop);
-                await this.AfterRender.InvokeAsync();
-            }            
+                // await this.AfterRender.InvokeAsync();
+                // await this.AfterRender.InvokeAsync();
+                AfterRender?.Invoke();
+            } else {
+                // await this.AfterRender.InvokeAsync();
+            }
         }
 
         public async Task<LatLng> GetCenter()
